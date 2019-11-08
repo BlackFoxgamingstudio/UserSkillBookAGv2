@@ -4,7 +4,7 @@
 
 export const environment = {
   
-  production: false,
+  production: true,
   appUrl: 'https://apiwebportalv2.azurewebsites.net/api/CodeDetail'
 };
 
