@@ -18,8 +18,8 @@ export class BlogPostService {
     })
   };
   constructor(private http: HttpClient) {
-      this.myAppUrl = environment.appUrl;
-      this.myApiUrl = '/';
+      this.myAppUrl = 'https://apiwebportalv2.azurewebsites.net/api/CodeDetail/';
+   
   }
 
   getBlogPosts(): Observable<BlogPost[]> {
