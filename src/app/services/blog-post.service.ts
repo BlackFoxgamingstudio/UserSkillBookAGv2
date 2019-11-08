@@ -47,7 +47,7 @@ export class BlogPostService {
   }
 
   updateBlogPost(CId: number, blogPost): Observable<BlogPost> {
-      return this.http.put<BlogPost>(this.myApiUrl + CId, JSON.stringify(blogPost), this.httpOptions)
+      return this.http.put<BlogPost>(this.myAppUrl + CId, JSON.stringify(blogPost), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -55,7 +55,7 @@ export class BlogPostService {
   }
 
   deleteBlogPost(CId: number): Observable<BlogPost> {
-      return this.http.delete<BlogPost>(this.myApiUrl + CId)
+      return this.http.delete<BlogPost>(this.myAppUrl + CId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
