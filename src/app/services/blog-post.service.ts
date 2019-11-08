@@ -31,7 +31,7 @@ export class BlogPostService {
   }
 
   getBlogPost(CId: number): Observable<BlogPost> {
-      return this.http.get<BlogPost>(this.myAppUrl, + CId)
+      return this.http.get<BlogPost>(this.myAppUrl + CId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
