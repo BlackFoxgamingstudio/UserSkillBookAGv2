@@ -23,7 +23,7 @@ export class BlogPostService {
   }
 
   getBlogPosts(): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(this.myAppUrl + this.myApiUrl)
+    return this.http.get<BlogPost[]>(this.myAppUrl)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -31,7 +31,7 @@ export class BlogPostService {
   }
 
   getBlogPost(CId: number): Observable<BlogPost> {
-      return this.http.get<BlogPost>(this.myAppUrl + this.myApiUrl + CId)
+      return this.http.get<BlogPost>(this.myAppUrl, + CId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -39,7 +39,7 @@ export class BlogPostService {
   }
 
   saveBlogPost(blogPost): Observable<BlogPost> {
-      return this.http.post<BlogPost>(this.myAppUrl + this.myApiUrl, JSON.stringify(blogPost), this.httpOptions)
+      return this.http.post<BlogPost>(this.myAppUrl, JSON.stringify(blogPost), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -47,7 +47,7 @@ export class BlogPostService {
   }
 
   updateBlogPost(CId: number, blogPost): Observable<BlogPost> {
-      return this.http.put<BlogPost>(this.myAppUrl + this.myApiUrl + CId, JSON.stringify(blogPost), this.httpOptions)
+      return this.http.put<BlogPost>(this.myApiUrl + CId, JSON.stringify(blogPost), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -55,7 +55,7 @@ export class BlogPostService {
   }
 
   deleteBlogPost(CId: number): Observable<BlogPost> {
-      return this.http.delete<BlogPost>(this.myAppUrl + this.myApiUrl + CId)
+      return this.http.delete<BlogPost>(this.myApiUrl + CId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
